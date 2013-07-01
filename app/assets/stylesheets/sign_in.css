@@ -1,12 +1,15 @@
 div#login {
+	/* Div Fill */
 	background-color: white;
-	border-radius: 20;
 	/*opacity: 0.75;*/
+	text-align: center;
+
+	/*Border and outline*/
+	border-radius: 20;
 	padding: 19px;
 	width: 300px;
+
 	margin: auto;
-	text-align: center;
-	/*margin-bottom: auto;*/
 	margin-top: 200px;
 }
 
@@ -25,6 +28,7 @@ div#main{
 div#login_bg{
 	background-color: #3F92D2;
 	opacity: 0.8;
+	
 	width: 360px;
 	margin-top: 200px;
 	/*text-align: center;*/
@@ -32,6 +36,10 @@ div#login_bg{
 	padding: 30px;
 	border-bottom-right-radius: 15;
 	border-bottom-left-radius: 15;
+}
+
+span{
+	text-align: left;
 }
 
 button {

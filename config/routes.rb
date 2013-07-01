@@ -2,5 +2,5 @@ Trellnote::Application.routes.draw do
 
   devise_for :users
 
-  root :to => "sessions#new"
+  root :to => "root#root"
 end
