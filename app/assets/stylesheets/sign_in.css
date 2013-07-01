@@ -1,0 +1,40 @@
+div#login {
+	background-color: white;
+	border-radius: 20;
+	/*opacity: 0.75;*/
+	padding: 19px;
+	width: 300px;
+	margin: auto;
+	text-align: center;
+	/*margin-bottom: auto;*/
+	margin-top: 200px;
+}
+
+div#remember_me {
+	text-align: left;
+	/*background-color: red;*/
+	float: left;
+}
+
+div#main{
+	background-color: black;
+	height: 750px;
+	opacity: 0.95;
+}
+
+div#login_bg{
+	background-color: #3F92D2;
+	opacity: 0.8;
+	width: 360px;
+	margin-top: 200px;
+	/*text-align: center;*/
+	margin: auto;
+	padding: 30px;
+	border-bottom-right-radius: 15;
+	border-bottom-left-radius: 15;
+}
+
+button {
+	/*vertical-align: center;*/
+	/*background-color: red;*/
+}
