@@ -1,8 +1,4 @@
-<div><%= current_user.inspect %></div>
+<div>
+	<h3>Welcome, <%= current_user.email %></h3>
+</div>
 
-<!-- Restructure this better; use just button -->
-<form action="/users/sign_out" method="post">
-	<input name="_method" value="delete" hidden>
-	<input type="submit" value="logout">
-</form>
- 
