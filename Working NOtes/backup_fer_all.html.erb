@@ -1,0 +1,85 @@
+<!-- starting root page -->
+
+<div>
+	<h3>Welcome, <%= current_user.email %></h3>
+
+<ul>
+	<% current_user.tasks.each do |task| %>
+	<li><%= task.title %></li>
+
+		<% end %>
+</ul>
+<!-- Restructure this better; use just button -->
+<form action="/users/sign_out" method="post">
+	<input name="_method" value="delete" hidden>
+	<input type="submit" value="logout">
+</form>
+
+</div> 
+
+<!-- ####################################- -->
+
+<div id="content">
+
+  <nav class="top-bar" data-options="is_hover:false">
+    <ul class="title-area">
+      <!-- Title area -->
+      <li class="name">
+        <!-- What does this do? find out. -->
+        <h1><a href="#"> TRELLNOTE </a></h1>
+      </li>
+
+      <li class="toggle-topbar menu-icon">Menu<a href="#"> <span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- PlaceHolder Search. Replace with own later. -->
+      <ul class='left'>
+        <li class="has-form">
+          <form>
+            <div class="row collapse">
+              <div class="small-8 columns">
+                <input type="text">
+              </div>
+              <div class="small-4 columns">
+                <a href="#" class="small button testButton">Search</a>
+              </div>
+            </div>
+          </form>
+        </li>
+      </ul>
+
+
+      <ul class="right">
+        <!-- class divider is just a line. -->
+
+        <li class="divider"></li>
+        <li class="has-dropdown"><a href="#">Potential Notifications</a>
+  
+          <ul class="dropdown">
+            <li class="active"><a href="#">TestmenuItem</a></li>
+          </ul></li>
+
+        <li class="divider"></li>
+        <li class="active"><a href="#">Boards</a></li>
+
+        <li class="divider"></li>
+        <li class="active"><a href="#"><%= current_user.email %></a></li>
+        
+
+      </ul>
+    </section>
+  </nav>
+</div>
+
+
+    <h3>Welcome, <%= current_user.email %></h3>
+    <ul>
+      <% current_user.tasks.each do |task| %>
+        <li><%= task.title %>
+          <ul>
+            <%= task.details %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>

@@ -13,7 +13,8 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "TrellNote" %></title>
+    <% currUser = current_user %>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -22,8 +23,14 @@
 
   <body>
 
-    <%= yield %>
 
+    <%= yield %>
+    <%#= current_user.inspect %>
+
+    <header><form action="/users/sign_out" method="post">
+      <input name="_method" value="delete" hidden>
+      <input type="submit" value="logout">
+    </form></header>
     
     <%= javascript_include_tag "application" %>
   </body>

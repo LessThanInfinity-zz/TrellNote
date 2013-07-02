@@ -1,0 +1,9 @@
+how to migrate current_uesr to backbone?
+
+how to specify that you want only the route that you customised in routes?
+
+better way to do??
+
+will a variable set in teh head of the root file, accessing current_user, stay accessible to js??
+
+HOW IS THE USER AUTOMATICALLY GETTING ONLY HIS TASKS???

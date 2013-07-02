@@ -45,7 +45,18 @@ span{
 	text-align: left;
 }
 
+div.blueButton{
+	background-color: blue;
+}
+
+
+nav.top-bar{
+	/*background-color: blue;*/
+}
+
 button {
 	/*vertical-align: center;*/
 	/*background-color: red;*/
 }
+
+
