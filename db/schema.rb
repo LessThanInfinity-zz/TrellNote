@@ -11,17 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701224922) do
+ActiveRecord::Schema.define(:version => 20130703001628) do
 
-  create_table "tasks", :force => true do |t|
-    t.integer  "user_id"
+  create_table "boards", :force => true do |t|
     t.string   "title"
-    t.text     "details"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "tasks", ["user_id"], :name => "index_tasks_on_user_id"
+  add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
+
+  create_table "cards", :force => true do |t|
+    t.string   "title"
+    t.integer  "list_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "cards", ["list_id"], :name => "index_cards_on_list_id"
+
+  create_table "lists", :force => true do |t|
+    t.string   "title"
+    t.integer  "board_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "lists", ["board_id"], :name => "index_lists_on_board_id"
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "card_id"
+    t.string   "title"
+    t.text     "details"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "status"
+  end
+
+  add_index "tasks", ["card_id"], :name => "index_tasks_on_card_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -36,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130701224922) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

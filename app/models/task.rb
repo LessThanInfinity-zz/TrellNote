@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
-  attr_accessible :title, :details
+  attr_accessible :title, :details, :card_id
 
-  belongs_to :user
+  belongs_to :card
+  
 end

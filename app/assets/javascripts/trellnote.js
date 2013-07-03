@@ -6,35 +6,40 @@ window.Trellnote = {
   initialize: function($rootEl, tasks) {
     // alert('Hello from Backbone!');
     console.log("in Init function. Routing.")
-    tasksRouter = new Trellnote.Routers.Tasks($rootEl, tasks)
+    boardsRouter = new Trellnote.Routers.Boards($rootEl, tasks)
     Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
 
-	current_user = new Trellnote.Models.CurrentUser();
-	current_user.fetch({
-    success: function (){
+// AJAX  SUCCESS WAY ; REMOVE LATER.
 
-        tasks = new Trellnote.Collections.Tasks();
-        // tasks.fetch({user_id: current_user.id});
-        tasks.fetch({
-          user_id: current_user.id,
-          // ask how to get this. 
+// 	current_user = new Trellnote.Models.CurrentUser();
+// 	current_user.fetch({
+//     success: function (){
 
-        success: function(){
-          console.log("initializing");
-          Trellnote.initialize($("#content"), tasks);
-          }
-        });
-    }
-  })
+//         boards = new Trellnote.Collections.Boards();
+//         // boards.fetch({user_id: current_user.id});
+//         boards.fetch({
+//           user_id: current_user.id,
+//           // ask how to get this. 
 
+//         success: function(){
+//           console.log("initializing");
+//           Trellnote.initialize($("#content"), boards);
+//           }
+//         });
+//     }
+//   })
+// })
 
+  current_user = JSON.parse($("#bootstrapped_currUser").html());
 
+  boards = new Trellnote.Collections.Boards();
+  boards.fetch();
+ debugger 
+  console.log("initializing");
+  Trellnote.initialize($("#content"), boards);
+})
 
-  
-
-
-});
