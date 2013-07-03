@@ -5,8 +5,10 @@
       <!-- Title area -->
       <li class="name">
         <!-- What does this do? find out. -->
+
         <h1><a href="#"> TRELLNOTE </a></h1>
       </li>
+
 
       <li class="toggle-topbar menu-icon">Menu<a href="#"> <span>Menu</span></a></li>
     </ul>
@@ -44,7 +46,12 @@
 
         <li class="divider"></li>
         <li class="active"><a href="#"><%= current_user.email %></a></li>
-        
+      <li>
+        <form action="/users/sign_out" method="post">
+          <input name="_method" value="delete" hidden>
+          <input type="submit" value="logout">
+        </form>
+      </li>        
 
       </ul>
     </section>

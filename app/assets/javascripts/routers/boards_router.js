@@ -39,5 +39,18 @@ Trellnote.Routers.Boards = Backbone.Router.extend({
 		}
 	},
 
+  new: function(event){
+    var that = this;
+    var board = new Trellnote.Models.Board();
+    
+    var boardsNewView = new Trellnote.Views.BoardsNew({ 
+    		model: board,
+    		collection: that.boards 
+    	});
+
+    that.$rootEl.append(boardsNewView.render().$el);
+    console.log('newboard')
+  },
+
 
 });

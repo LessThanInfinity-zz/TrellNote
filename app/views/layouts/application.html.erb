@@ -30,12 +30,8 @@
 
     <%= yield %>
     <%#= current_user.inspect %>
+  <%= button_to "New User", new_user_path, :class => "button", :method => :get %>
 
-    <header><form action="/users/sign_out" method="post">
-      <input name="_method" value="delete" hidden>
-      <input type="submit" value="logout">
-    </form></header>
-    
     <%= javascript_include_tag "application" %>
   </body>
 </html>

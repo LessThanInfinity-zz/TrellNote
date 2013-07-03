@@ -1,17 +1,17 @@
-@import "foundation_and_overrides";
+@import "foundation_and_overrides" ;
+
 
 button {
 	/*vertical-align: center;*/
 	/*background-color: red;*/
 }
 
-
-
 div.show{
-	/*@include panel;*/
-	/*width: 400px;*/
+	@include panel;
+	text-align: center;
+	width: 400px;
 	padding: 10px;
-	/*float: left;*/
+	float: left;
 	margin: 10px;
 
 }
@@ -63,46 +63,25 @@ div.blueButton{
 	background-color: blue;
 }
 
-div.boardViewMain{
-	position: auto;
-	text-align: center;
-}
-
-div.boardNewMain{
-	position: absolute;
-	width: 350px;
-	border: solid;
-	border-color: #0776A0;
-	padding: 10px;
-	background-color: white;
-	opacity: 0.7;
-}
-
 
 div.show.list{
 	
-	width: 350px;
 	border: groove;
 	border-color: #3F92D2;
-	float: left;
 }
 
 div.show.card{
 	clear: both;
-	width: 80%;
-
-	padding: 0 10px;
+	width: 50%;
 	border: groove;
 	border-color: red;
-	margin: auto auto 5px auto;
+	margin: auto;
 }
 
 div.show.task{
-	width: 80%;
+	width: 50%;
 	border: groove;
 	border-color: blue;
-	padding: 0 10px;
-		margin: 0;
 }
 
 span{

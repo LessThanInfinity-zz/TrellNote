@@ -1,5 +1,7 @@
 Trellnote.Models.Board = Backbone.Model.extend({
 
+	urlRoot: "/boards",
+
 	parse: function(server_response){
 		that = this;
 		var lists = new Trellnote.Collections.Lists(server_response.lists, {parse : true});
@@ -14,5 +16,7 @@ Trellnote.Models.Board = Backbone.Model.extend({
 		
 		return server_response
 	},
+
+		
 
 });
