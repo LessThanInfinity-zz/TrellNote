@@ -9,20 +9,35 @@ Trellnote.Routers.Boards = Backbone.Router.extend({
 	routes:{
 		"": "index",
 		"boards": "new",
-		"boards/:id": "show"
+		"boards/:id": "show",
 	},
 
 	index:function(){
 		var that = this;
 		console.log('get here??');
 		var boardsListView = new Trellnote.Views.BoardsIndex({
-				collection: that.boards,
+				collection: that.boards ,
 		})
 
 		that.$rootEl.html(boardsListView.render().$el)
 
 	},
 
+	show:function(id){
+		var that = this;
+		var board = boards.findWhere({id: parseInt(id)})
+		if (!board){
+			Backbone.history.navigate("#/");
+		} else {			
+			
+			var boardShowView = new Trellnote.Views.BoardShow({
+				model: board,
+				
+			});
+
+			that.$rootEl.html(boardShowView.render().$el)
+		}
+	},
 
 
 });

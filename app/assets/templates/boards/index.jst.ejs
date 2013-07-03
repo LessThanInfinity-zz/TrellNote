@@ -2,8 +2,10 @@
     <h3>Welcome, <%= current_user.name%></h3>
     <ul>
       <% boards.each( function(board){ %>
-        <li>
+        <li id="<%=board.id%>">
+          <a href="#/boards/<%= board.id %>">
           <%= board.escape("title") %>
+        </a>
         </li>
       <% }) %>
     </ul>

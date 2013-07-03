@@ -38,7 +38,6 @@ $(document).ready(function(){
 
   boards = new Trellnote.Collections.Boards();
   boards.fetch();
- debugger 
   console.log("initializing");
   Trellnote.initialize($("#content"), boards);
 })

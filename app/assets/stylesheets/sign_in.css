@@ -59,4 +59,15 @@ button {
 	/*background-color: red;*/
 }
 
+div.show_list{
+	background-color: green;
+}
+
+div.show_card{
+	background-color: red;
+}
+
+div.show_task{
+	background-color: blue;
+}
 

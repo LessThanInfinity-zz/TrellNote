@@ -2,8 +2,7 @@ Trellnote.Models.Board = Backbone.Model.extend({
 
 	parse: function(server_response){
 		that = this;
-
-		var lists = new Trellnote.Collections.Lists(server_response, {parse : true});
+		var lists = new Trellnote.Collections.Lists(server_response.lists, {parse : true});
 
 
 		// _(server_response).each(function(server_list){
