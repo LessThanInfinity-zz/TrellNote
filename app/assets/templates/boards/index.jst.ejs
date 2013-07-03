@@ -4,7 +4,13 @@
 
   <div class= "boardViewMain">
 
-    <p>Your Boards:  <a href="#" id="new_board_link">Create New Board</a></p>
+    <p>Your Boards:
+      <a href="#" 
+         id="new_board_link">
+          Create New Board
+      </a>
+    </p>
+    
     <ul>
       <% _(boards).reverse().each( function(board){ %>
         <li id="<%=board.id%>">
@@ -14,5 +20,5 @@
         </li>
       <% }) %>
     </ul>
-  </div>
+</div>
    

@@ -1,4 +1,9 @@
 Trellnote.Models.Card = Backbone.Model.extend({
+			
+		urlRoot: function(){
+			return "/boards/"+this.board_id+"cards"
+		},
+
 		parse: function(server_response){
 		that = this;
 		

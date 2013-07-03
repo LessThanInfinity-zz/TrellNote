@@ -47,10 +47,9 @@
         <li class="divider"></li>
         <li class="active"><a href="#"><%= current_user.email %></a></li>
       <li>
-        <form action="/users/sign_out" method="post">
-          <input name="_method" value="delete" hidden>
-          <input type="submit" value="logout">
-        </form>
+        <%= link_to "Logout",  
+            destroy_user_session_url, 
+            :method => :delete %>
       </li>        
 
       </ul>

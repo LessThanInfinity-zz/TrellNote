@@ -3,7 +3,8 @@ Trellnote.Views.BoardsIndex = Backbone.View.extend({
   template: JST['boards/index'],
 
   events: {
-   "click #new_board_link": "newBoard"
+   "click #new_board_link": "newBoard",
+   "blur .boardNewMain": "remove"
   },
 
   initialize: function(){
@@ -32,9 +33,13 @@ Trellnote.Views.BoardsIndex = Backbone.View.extend({
       });
 
     that.$el.append(boardsNewView.render().$el);
-    $(".boardNewMain").css({left: event.pageX, top: event.pageY})
-    console.log('newboard')
+    $(".boardNewMain").css({left: event.pageX, top: event.pageY});
+    
   },
+
+  remove: function(event){
+    $(".boardNewMain").remove();
+  }
 
 });
 

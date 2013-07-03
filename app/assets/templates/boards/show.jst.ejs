@@ -3,30 +3,33 @@ hurray!
 <div class="show_bg">
 
 		<% board.get("lists").each(function(list){ %>
-			<div class="show list" data-id="list_<%= list.id %>">	
+
+			<div class="show list" id="list_<%= list.id %>" data-id="<%= list.id %>">	
 				<%= list.escape("title") %>
 				<ul>
 					<% list.get("cards").each(function(card){ %>
 
 						<li>
-							<div class="show card" data-id="card_<%= card.id %>">
+							<div class="show card" id="card_<%= card.id %>" data-id="<%= list.id %>">
 								<%= card.escape("title") %>
 								<ul>
+
 									<% card.get("tasks").each(function(task){ %>
-										<div class="show task" data-id="task_<%= task.id %>">
+										<div class="show task" id="task_<%= task.id %>" data-id="<%= list.id %>">
 											<li> <%= task.escape("title") %></li>
 										</div>
-									<% }) %>							
-								
+									<% }) %>	
 								</ul>
-
 							</div>
 						</li>
 					
 					<% }) %>
-
 				</ul>
-				<a href="#" class="small button">Add a Card</a>
+
+				<a href="#" 
+					 class="small button"
+					 id="add_card_link">
+					Add a Card</a>
 			</div>
 		<% }) %>	
 		<a href="#" class="button">Add List</a>
@@ -34,4 +37,4 @@ hurray!
 
 
 
-<a href="">Back??</a>
+<a href="#/">Back??</a>
