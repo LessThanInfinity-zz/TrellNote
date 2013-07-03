@@ -1,0 +1,95 @@
+/*@import "foundation/variables", "foundation/components/global", "foundation/components/buttons";
+*/
+
+button {
+	/*vertical-align: center;*/
+	/*background-color: red;*/
+}
+
+div.show{
+	@include panel;
+	text-align: center;
+	width: 400px;
+	padding: 10px;
+	float: left;
+	margin: 10px;
+
+}
+
+div#login {
+	/* Div Fill */
+	background-color: white;
+	/*opacity: 0.75;*/
+	text-align: center;
+
+	/*Border and outline*/
+	border-radius: 20;
+	padding: 19px;
+	width: 300px;
+
+	margin: auto;
+	margin-top: 200px;
+}
+
+div#remember_me {
+	text-align: left;
+	/*background-color: red;*/
+	float: left;
+}
+
+div#main{
+	background-color: black;
+	height: 750px; 
+	/*height: 100%; */
+	opacity: 0.95;
+}
+
+div#login_bg{
+	background-color: #3F92D2;
+	opacity: 0.8;
+
+	width: 360px;
+
+	margin-top: 200px;
+	/*margin: 200px auto;*/
+	/*text-align: center;*/
+	margin: auto;
+	padding: 30px;
+	border-bottom-right-radius: 15;
+	border-bottom-left-radius: 15;
+}
+
+div.blueButton{
+	background-color: blue;
+}
+
+
+div.show.list{
+	
+	border: groove;
+	border-color: #3F92D2;
+}
+
+div.show.card{
+	clear: both;
+	width: 50%;
+	border: groove;
+	border-color: red;
+	margin: auto;
+}
+
+div.show.task{
+	width: 50%;
+	border: groove;
+	border-color: blue;
+}
+
+span{
+	text-align: left;
+}
+
+nav.top-bar{
+	/*background-color: blue;*/
+}
+
+
