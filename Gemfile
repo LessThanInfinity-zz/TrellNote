@@ -42,4 +42,6 @@ gem 'binding_of_caller'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+group :development do
+	gem 'debugger'	
+end
