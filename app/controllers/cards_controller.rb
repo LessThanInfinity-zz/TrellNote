@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 
 
     if @card.save
-    	debugger
+    
       render :json => @card
     else
       render :json => @card.errors.full_messages, status: 422

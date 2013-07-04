@@ -50,4 +50,5 @@ Trellnote.Views.ListsNew = Backbone.View.extend({
   },
 
 
+
 });

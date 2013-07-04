@@ -3,8 +3,8 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
   template: JST['cards/new'],
 
   events: {
-   "click #new_card_button": "create"
-  },
+   "click #new_card_button": "create",
+   },
 
   // initialize: function(){
   // 	var that=this;
@@ -45,6 +45,7 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
     // })
 
   },
+
 
 
 });

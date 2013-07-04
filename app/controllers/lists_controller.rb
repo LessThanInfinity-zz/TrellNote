@@ -4,7 +4,7 @@ respond_to :html, :only => [:index]
   def create
     @list = List.new(params[:list])
     @list.board_id = params[:board_id]
-		debugger
+
     if @list.save
       render :json => @list
     else
