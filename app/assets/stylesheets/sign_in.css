@@ -40,8 +40,6 @@ button {
 	/*background-color: red;*/
 }
 
-
-
 div#login {
 	/* Div Fill */
 	background-color: white;
@@ -92,11 +90,15 @@ div.blueButton{
 div.boardViewMain{
 	position: auto;
 	text-align: center;
-	width: 80%;
+	width: 30%;
 	height: 80%;
 	
 	margin: auto;
-	/*background-color: green;*/
+	background-color: green;
+	border-radius: 4px;
+
+	background: rgba(240,240,240,1);
+	box-shadow: -1px 0px 3px #333; 
 }
 
 div.boardNewMain{
@@ -112,54 +114,6 @@ div.boardNewMain{
 div.list_title{
 	margin-bottom: 5px;
 	
-}
-
-div.show{
-	/*@include panel;*/
-	/*width: 400px;*/
-	padding: 10px;
-	/*float: left;*/
-	margin: 10px;
-
-}
-
-div.show.list{
-	
-	width: 350px;
-/*	border-color: #3F92D2;*/
-	float: left;
-	background-color: white;
-	border-radius: 4px;
-	background: rgba(227,227,227,1);
-	z-index: 200px;
-}
-
-
-
-div.show.card{
-	clear: both;
-	width: 98%;
-	border-radius: 4px;
-	/*border: solid 1px;*/
-	/*padding: 5px;*/
-
-	margin: 0 auto 10px auto;
-	background: rgba(255,255,255,1);
-	box-shadow: -1px 0px 3px #333; 
-}
-
-div.show.card:hover{
-	outline: 1px solid #f4a41a;
-
-}
-
-
-div.show.task{
-	width: 80%;
-	border: groove;
-	border-color: blue;
-	padding: 0 10px;
-	margin: 0;
 }
 
 span{
