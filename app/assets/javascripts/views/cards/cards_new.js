@@ -29,18 +29,18 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
     // that.model.set(card_input.card);
     that.collection.create(card_input.card)
 
-    that.collection.save({}, 
-      {success: function(){
-        // that.collection.add(that.model);
-        console.log(that.collection);
-        // Backbone.history.navigate("#/");
+    // that.collection.save({}, 
+    //   {success: function(){
+    //     // that.collection.add(that.model);
+    //     console.log(that.collection);
+    //     // Backbone.history.navigate("#/");
 
-      }, 
-      error: function(object, errors){
-        var length = errors.responseText.length - 1
-        that.$el.prepend(errors.responseText.substring(1, length));
-      }
-    })
+    //   }, 
+    //   error: function(object, errors){
+    //     var length = errors.responseText.length - 1
+    //     that.$el.prepend(errors.responseText.substring(1, length));
+    //   }
+    // })
 
   },
 

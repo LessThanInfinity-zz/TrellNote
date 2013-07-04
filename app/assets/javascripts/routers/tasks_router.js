@@ -15,7 +15,7 @@ Trellnote.Routers.Tasks = Backbone.Router.extend({
 	index:function(){
 		var that = this;
 		console.log('get here??');
-		var tasksListView = new Trellnote.Views.TasksIndex({
+		var tasksListView = new Trellnote.Views.TasksShow({
 				collection: that.tasks,
 		})
 

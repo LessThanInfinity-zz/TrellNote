@@ -1,0 +1,12 @@
+
+    <h3>Welcome, <%= current_user.email %></h3>
+    <ul>
+      <% tasks.each( function(task){ %>
+        <li><%= task.escape("title") %>
+          <ul>
+            <%= task.escape("details") %>
+            <%= task.escape("status") %>
+          </ul>
+        </li>
+      <% }) %>
+    </ul>

@@ -26,6 +26,7 @@ Trellnote.Routers.Boards = Backbone.Router.extend({
 	show:function(id){
 		var that = this;
 		var board = boards.findWhere({id: parseInt(id)})
+		
 		if (!board){
 			Backbone.history.navigate("#/");
 		} else {			

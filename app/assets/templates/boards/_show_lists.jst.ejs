@@ -2,7 +2,7 @@
 	<div class="list_title"><%= list.escape("title") %></div>
 
 		<% list.get("cards").each(function(card){ %>	
-				<% var card =	new Trellnote.Views.CardsIndex({
+				<% var card =	new Trellnote.Views.CardsShow({
 							card: card,
 							list: list }); %>
 				<%= card.render() %>

@@ -2,7 +2,7 @@
 <div class="show_bg">
 
 	<% board.get("lists").each(function(list){ %>
-		<% var list =	new Trellnote.Views.ListsIndex({
+		<% var list =	new Trellnote.Views.ListsShow({
 				collection: board.get("lists"),
 				list: list }); %>
 		<%= list.render() %>

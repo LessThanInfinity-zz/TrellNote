@@ -27,20 +27,20 @@ Trellnote.Views.BoardsNew = Backbone.View.extend({
     var board_input = $("#new_board").serializeJSON();    
 
     // that.model.set(board_input.board);
-    test = that.collection.create(board_input.board)
+    that.collection.create(board_input.board)
 
-    that.collection.save({}, 
-      {success: function(){
-        // that.collection.add(that.model);
+    // that.collection.save({}, 
+    //   {success: function(){
+    //     // that.collection.add(that.model);
 
-        Backbone.history.navigate("#/");
+    //     Backbone.history.navigate("#/");
 
-      }, 
-      error: function(object, errors){
-        var length = errors.responseText.length - 1
-        that.$el.prepend(errors.responseText.substring(1, length));
-      }
-    })
+    //   }, 
+    //   error: function(object, errors){
+    //     var length = errors.responseText.length - 1
+    //     that.$el.prepend(errors.responseText.substring(1, length));
+    //   }
+    // })
 
   },
 

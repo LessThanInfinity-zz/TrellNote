@@ -5,6 +5,7 @@ Trellnote.Views.BoardsIndex = Backbone.View.extend({
   events: {
    "click #new_board_link": "newBoard",
    "blur .boardNewMain": "remove"
+   // "click .boardViewMain" : "remove"
   },
 
   initialize: function(){
