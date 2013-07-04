@@ -1,9 +1,17 @@
 Trellnote::Application.routes.draw do
 
-  devise_for :users
-  resources :tasks
-  resources :boards
-  resources :cards, :only => [:create, :destroy]
+  devise_for :users do
+	  resources :boards do
+	  	resources :lists do
+	  		resources :cards do
+	  			resources :tasks
+	  		end
+	  	end
+  	end
+  end
+
+  # ^^^ remember to restructure to only include required routes
+
   root :to => "roots#root" #tasks#index" 
 
 

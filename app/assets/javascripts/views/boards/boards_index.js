@@ -26,7 +26,6 @@ Trellnote.Views.BoardsIndex = Backbone.View.extend({
     var that = this;
     var board = new Trellnote.Models.Board();
 
-
     var boardsNewView = new Trellnote.Views.BoardsNew({  
         model: board,
         collection: boards

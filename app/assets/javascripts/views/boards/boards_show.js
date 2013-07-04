@@ -3,7 +3,8 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
   template: JST['boards/show'],
 
   events: {
-    "click #add_card_link": "addCard"
+    "click #add_card_link": "addCard",
+    "click #add_list_link": "addList"
   },
 
   initialize: function(){
@@ -23,26 +24,33 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
 
   addCard: function(event){
     event.preventDefault();
-    console.log("is it even here?");
 
     var that= this;
     var card = new Trellnote.Models.Card();
     var currBoard = boards.findWhere({id: that.model.id});
-    var list_id = $(targetDiv).attr("data-id");
 
     var targetDiv = event.target.parentElement;
+    var list_id = $(targetDiv).attr("data-id");
+
+    var currList = currBoard.get("lists").findWhere({ id: +list_id}) 
+    // + needed here because string vs integer
+
 
     var cardsNewView = new Trellnote.Views.CardsNew({
         model: card,
-        collection: currBoard.get("lists").findWhere({
-          id: list_id 
-      })        
+        collection: currList.get("cards")
     })
 
-    // debugger
+
     // targetDiv.innerHTML += cardsNewView.render().$el
     $(targetDiv).append(cardsNewView.render().$el)
     // debugger
+  },
+
+  addList: function(event){
+    event.preventDefault();
+
+    
   }
 
 })

@@ -31,6 +31,7 @@ Trellnote.Views.BoardsNew = Backbone.View.extend({
     that.model.save({}, 
       {success: function(){
         that.collection.add(that.model);
+
         Backbone.history.navigate("#/");
 
       }, 

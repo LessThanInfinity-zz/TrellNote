@@ -22,7 +22,10 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(params[:card])
-    # @card.user_id = current_user.id
+    @card.list_id = params[:list_id]
+	
+		# debugger
+
     if @card.save
       render :json => @card
     else
