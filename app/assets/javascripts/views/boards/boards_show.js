@@ -10,7 +10,13 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
   initialize: function(){
 
   	var that = this;
-  	that.listenTo(that.model,'all',that.render)
+  	that.listenTo(that.model,'all',that.render);
+    that.listenTo(that.model.get("lists"), 'all',that.render);
+    
+    that.model.get("lists").each(function(list){
+      debugger
+      that.listenTo(list.get("cards"), "all", that.render)
+    })
   },
 
   render: function(){

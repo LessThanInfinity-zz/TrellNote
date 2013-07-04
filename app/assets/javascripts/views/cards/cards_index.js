@@ -4,11 +4,14 @@ Trellnote.Views.CardsIndex = Backbone.View.extend({
   
   initialize: function(){
     var that=this;
+
     that.listenTo(that.collection,'all',that.render);
       // that.listenTo(that.options.list.attributes.tasks,'all',that.render);  
   },
 
   render: function(){
+    debugger
+
     var that= this;
     var content = that.template({
       card: that.options.card,

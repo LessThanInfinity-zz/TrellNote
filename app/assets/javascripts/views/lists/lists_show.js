@@ -1,15 +1,15 @@
-Trellnote.Views.ListsShow = Backbone.View.extend({
+Trellnote.Views.ListsIndex = Backbone.View.extend({
 
-  template: JST['lists/show'],
+  template: JST['lists/index'],
   
   initialize: function(){
+    console.log("indexingakjsd;lkajdf;l")
     var that=this;
-    that.listenTo(that.options.list.attributes.cards,'all',that.render);
+    that.listenTo(that.collection,'all',that.render);
   },
 
   render: function(){
 
-    debugger
     var that= this;
     var list_content = that.template({
       list: that.options.list,
