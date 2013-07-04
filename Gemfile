@@ -24,6 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rails-erd'
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'better_errors'

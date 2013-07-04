@@ -14,13 +14,12 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     that.listenTo(that.model.get("lists"), 'all',that.render);
     
     that.model.get("lists").each(function(list){
-      debugger
       that.listenTo(list.get("cards"), "all", that.render)
     })
   },
 
   render: function(){
-    
+    debugger
   	var that= this;
   	var content = that.template({
   		board: that.options.model
@@ -49,7 +48,6 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
         collection: currList.get("cards")
     });
     
-    // targetDiv.innerHTML += cardsNewView.render().$el
     $(targetDiv).append(cardsNewView.render().$el)
   },
 
@@ -57,11 +55,14 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     event.preventDefault();
 
     var that = this;
+    var lists = that.model.get("lists")
 
-    var board_id = that.options.id
+    var listsNewView = new Trellnote.Views.ListsNew({
+        collection: lists
+    });
 
-
-    
+    var targetDiv = event.target.parentElement;
+    $(targetDiv).append(listsNewView.render().$el); 
   },
 
 })

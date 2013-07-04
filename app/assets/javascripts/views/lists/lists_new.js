@@ -1,9 +1,9 @@
-Trellnote.Views.CardsNew = Backbone.View.extend({
+Trellnote.Views.ListsNew = Backbone.View.extend({
 
-  template: JST['cards/new'],
+  template: JST['lists/new'],
 
   events: {
-   "click #new_card_button": "create"
+   "click #new_list_button": "create"
   },
 
   // initialize: function(){
@@ -11,6 +11,7 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
   // },
 
   render: function(){
+
   	var that= this;
   	var content = that.template({
       model: that.model
@@ -24,11 +25,13 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
     var that= this;
     event.preventDefault() // because used inputsubmit.
 
-    var card_input = $("#new_card").serializeJSON();    
+    // this is going to cause an issue. -> no board id. unless collection?
+    var list_input = $("#new_list").serializeJSON();    
+      // debugger
+    // that.model.set(list_input.list);
+    that.collection.create(list_input.list,{parse: true, board_id: that.collection.board_id});
 
-    // that.model.set(card_input.card);
-    that.collection.create(card_input.card);
-        debugger
+  
     // that.collection.trigger("add");
 
     // that.collection.save({}, 

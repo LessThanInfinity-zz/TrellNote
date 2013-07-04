@@ -5,7 +5,8 @@ Trellnote.Models.Board = Backbone.Model.extend({
 	parse: function(server_response){
 		that = this;
 
-		var lists = new Trellnote.Collections.Lists(server_response.lists, {parse : true, board_id : server_response.id});
+		var lists = new Trellnote.Collections.Lists(server_response.lists, {parse : true});
+		lists.board_id = server_response.id;
 
 
 		// _(server_response).each(function(server_list){
