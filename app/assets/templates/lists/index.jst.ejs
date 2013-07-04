@@ -1,24 +1,20 @@
-<!-- index: LIST -->
+	<% board.get("lists").each(function(list){ %>
 
-<div class="show list" id="list_<%= list.id %>" data-id="<%= list.id %>"> 
-  <div class="list_title">
-    <h5><%= list.escape("title") %></h5>
-  </div>
+		<div class="show list" id="list_<%= list.id %>" data-id="<%= list.id %>"> 
+		  <div class="list_title">
+		    <h5><%= list.escape("title") %></h5>
+		  </div>
 
-    <% list.get("cards").each(function(card){ %>  
+		  <% var cardIndexContent = JST["cards/index"]({cards: list.get("cards"), list: list }) %>
+		  <!-- ^ refactor, but not priority -->  
+		  <%= cardIndexContent %>
 
-        <% var card = new Trellnote.Views.CardsIndex({
-              collection: list.get("cards"),
-              card: card,
-              list: list }); %>
-        <%= card.render() %>
-    <% }); %>
+		  <a href="#" 
+		     class="small button"
+		     id="add_card_link">
+		    Add a Card
+		  </a>
 
-
-  <a href="#" 
-     class="small button"
-     id="add_card_link">
-    Add a Card
-  </a>
-
-</div>
+		</div>
+		
+	<% }) %>	

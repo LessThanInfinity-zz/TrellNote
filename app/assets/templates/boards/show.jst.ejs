@@ -1,13 +1,9 @@
 <!-- REFACTOR THIS ASAP WHEN YOU CAN. -->
 <div class="show_bg">
 
-	<% board.get("lists").each(function(list){ %>
-		<% var list =	new Trellnote.Views.ListsShow({
-				collection: board.get("lists"),
-				list: list }); %>
-		<%= list.render() %>
-		
-	<% }) %>	
+  <% var listIndexContent = JST["lists/index"]({lists: board.get("lists") , board: board })%>
+  <!-- ^ refactor, but not priority -->  
+  <%= listIndexContent %>
 
 	<a href="#" 
 		 class="button"

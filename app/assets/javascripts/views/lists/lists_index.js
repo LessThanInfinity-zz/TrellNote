@@ -4,18 +4,17 @@ Trellnote.Views.ListsIndex = Backbone.View.extend({
   
   initialize: function(){
     var that=this;
-
-    that.listenTo(that.collection,'all',that.render);
+    that.listenTo(that.options.list.attributes.cards,'all',that.render);
   },
 
   render: function(){
 
-  	var that= this;
-  	var list_content = that.template({
+    var that= this;
+    var list_content = that.template({
       list: that.options.list,
-  	});
-  	
-  	return list_content;
+    });
+    
+    return list_content;
   },
 
 });

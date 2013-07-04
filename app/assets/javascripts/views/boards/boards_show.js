@@ -55,8 +55,6 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     var board_id = that.options.id
 
 
-    debugger
-
     
   },
 

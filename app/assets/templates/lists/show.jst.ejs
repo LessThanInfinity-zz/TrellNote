@@ -5,16 +5,10 @@
     <h5><%= list.escape("title") %></h5>
   </div>
 
-    <% list.get("cards").each(function(card){ %>  
-
-        <% var card = new Trellnote.Views.CardsShow({
-              collection: list.get("cards"),
-              card: card,
-              list: list }); %>
-         <%  debugger %>     
-        <%= card.render() %>
-    <% }); %>
-
+  <% console.log(JST['cards/index']) %>
+  <% var cardIndexContent = JST["cards/index"]({cards: list.get("cards"), list: list }) %>
+  <!-- ^ refactor, but not priority -->  
+  <%= cardIndexContent %>
 
   <a href="#" 
      class="small button"

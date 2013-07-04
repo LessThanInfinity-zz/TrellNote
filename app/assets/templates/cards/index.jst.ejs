@@ -1,10 +1,8 @@
-<!-- index: CARD -->
-<div class="show card" id="card_<%= card.id %>" data-id="<%= list.id %>">
-	<%= card.escape("title") %>
-		<% card.get("tasks").each(function(task){ %>
-			<div class="show task" id="task_<%= task.id %>" data-id="<%= list.id %>">
-				<li> <%= task.escape("title") %></li>
-			</div>
-		<% }) %>	
+<% cards.each(function(card){ %>  
 
-</div>
+  <div class="show card" id="card_<%= card.id %>" data-id="<%= list.id %>">
+    <%= card.escape("title") %>
+
+  </div>
+
+<% }) %>
