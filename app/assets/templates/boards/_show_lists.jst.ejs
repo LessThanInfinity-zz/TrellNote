@@ -1,0 +1,19 @@
+<div class="show list" id="list_<%= list.id %>" data-id="<%= list.id %>">	
+	<div class="list_title"><%= list.escape("title") %></div>
+
+		<% list.get("cards").each(function(card){ %>	
+				<% var card =	new Trellnote.Views.CardsIndex({
+							card: card,
+							list: list }); %>
+				<%= card.render() %>
+		
+		<% }); %>
+
+
+	<a href="#" 
+		 class="small button"
+		 id="add_card_link">
+		Add a Card
+	</a>
+
+</div>

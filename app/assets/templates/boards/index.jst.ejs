@@ -13,11 +13,13 @@
     
     <ul>
       <% _(boards).reverse().each( function(board){ %>
+        <div class="row">
         <li id="<%=board.id%>">
           <h3><a href="#/boards/<%= board.id %>">
           <%= board.escape("title") %>
         </a></h3>
         </li>
+        <div>
       <% }) %>
     </ul>
 </div>

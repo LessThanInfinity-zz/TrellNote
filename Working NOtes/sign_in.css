@@ -5,7 +5,9 @@ button {
 	/*background-color: red;*/
 }
 
-
+div.list_title{
+	margin-bottom: 10px
+}
 
 div.show{
 	/*@include panel;*/

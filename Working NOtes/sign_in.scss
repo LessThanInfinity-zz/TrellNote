@@ -1,4 +1,6 @@
-@import "foundation_and_overrides" ;
+/*@import "foundation/variables", "foundation/components/global", "foundation/components/buttons";*/
+
+/*@import "foundation_and_overrides" ;*/
 
 
 button {
@@ -7,7 +9,7 @@ button {
 }
 
 div.show{
-	@include panel;
+	/*@include panel;*/
 	text-align: center;
 	width: 400px;
 	padding: 10px;
@@ -92,4 +94,10 @@ nav.top-bar{
 	/*background-color: blue;*/
 }
 
+a#add_list_link{
+	color: green;
+	/*$red: red;*/
+	/*@include button($padding, $red, $radius, $full-width, $disabled, $is-input);*/
+	 ;
+}
 

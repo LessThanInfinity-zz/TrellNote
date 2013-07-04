@@ -39,9 +39,8 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     var cardsNewView = new Trellnote.Views.CardsNew({
         model: card,
         collection: currList.get("cards")
-    })
-
-
+    });
+    
     // targetDiv.innerHTML += cardsNewView.render().$el
     $(targetDiv).append(cardsNewView.render().$el)
     // debugger
@@ -51,6 +50,6 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     event.preventDefault();
 
     
-  }
+  },
 
 })
