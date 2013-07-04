@@ -43,7 +43,6 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     
     // targetDiv.innerHTML += cardsNewView.render().$el
     $(targetDiv).append(cardsNewView.render().$el)
-    // debugger
   },
 
   addList: function(event){

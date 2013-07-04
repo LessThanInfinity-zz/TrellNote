@@ -24,7 +24,7 @@ class CardsController < ApplicationController
     @card = Card.new(params[:card])
     @card.list_id = params[:list_id]
 	
-		# debugger
+
 
     if @card.save
       render :json => @card

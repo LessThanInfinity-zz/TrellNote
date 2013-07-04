@@ -36,8 +36,9 @@ $(document).ready(function(){
 
   current_user = JSON.parse($("#bootstrapped_currUser").html());
 
-  boards = new Trellnote.Collections.Boards();
+  boards = new Trellnote.Collections.Boards()
   boards.fetch();
+  
   console.log("initializing");
   Trellnote.initialize($("#content"), boards);
 })

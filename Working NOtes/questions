@@ -12,3 +12,6 @@ HOW IS THE USER AUTOMATICALLY GETTING ONLY HIS TASKS???
 *** ask about about server response is passed from freaking board to list to card to task. 
 
 also what the fuck/
+
+
+do i have to pass in board id for card id, since card is nested inside list?

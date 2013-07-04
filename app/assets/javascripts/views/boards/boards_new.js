@@ -26,11 +26,12 @@ Trellnote.Views.BoardsNew = Backbone.View.extend({
 
     var board_input = $("#new_board").serializeJSON();    
 
-    that.model.set(board_input.board);
+    // that.model.set(board_input.board);
+    test = that.collection.create(board_input.board)
 
-    that.model.save({}, 
+    that.collection.save({}, 
       {success: function(){
-        that.collection.add(that.model);
+        // that.collection.add(that.model);
 
         Backbone.history.navigate("#/");
 

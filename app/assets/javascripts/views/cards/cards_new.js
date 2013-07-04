@@ -24,17 +24,17 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
     var that= this;
     event.preventDefault() // because used inputsubmit.
 
-    debugger
     var card_input = $("#new_card").serializeJSON();    
 
-    that.model.set(card_input.card);
+    // that.model.set(card_input.card);
+    that.collection.create(card_input.card)
 
-    that.model.save({}, 
+    that.collection.save({}, 
       {success: function(){
-        that.collection.add(that.model);
+        // that.collection.add(that.model);
         console.log(that.collection);
         // Backbone.history.navigate("#/");
-        debugger
+
       }, 
       error: function(object, errors){
         var length = errors.responseText.length - 1

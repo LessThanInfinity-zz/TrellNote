@@ -1,6 +1,8 @@
 Trellnote.Collections.Lists = Backbone.Collection.extend({
 
   model: Trellnote.Models.List,
-  url: "lists/"
+  url: function(){
+  	return "boards/"+ this.board_id +"/lists/"
+  },
 
 });
