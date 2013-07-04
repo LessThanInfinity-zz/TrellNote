@@ -36,7 +36,9 @@ Trellnote.Routers.Boards = Backbone.Router.extend({
 				
 			});
 
-			that.$rootEl.html(boardShowView.render().$el)
+			that.$rootEl.html(boardShowView.render().$el);
+
+			$(".show.card").sortable();
 		}
 	},
 

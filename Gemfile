@@ -26,6 +26,7 @@ end
 
 gem 'rails-erd'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'backbone-on-rails'
 gem 'better_errors'
 gem 'binding_of_caller'

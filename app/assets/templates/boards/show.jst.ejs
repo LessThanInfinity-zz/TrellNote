@@ -1,15 +1,15 @@
 <!-- REFACTOR THIS ASAP WHEN YOU CAN. -->
 <div class="show_bg">
+	<!-- <div class="lists_container"> -->
+	  <% var listIndexContent = JST["lists/index"]({lists: board.get("lists") , board: board })%>
+	  <!-- ^ refactor, but not priority -->  
+	  <%= listIndexContent %>
 
-  <% var listIndexContent = JST["lists/index"]({lists: board.get("lists") , board: board })%>
-  <!-- ^ refactor, but not priority -->  
-  <%= listIndexContent %>
-
-	<a href="#" 
-		 class="button"
-		 id="add_list_link">
-		 Add List
-	</a>
-	
+		<a href="#" 
+			 class="button"
+			 id="add_list_link">
+			 Add List
+		</a>
+	<!-- </div> -->
 </div>
 <a href="#/">Back??</a>

@@ -4,7 +4,8 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
 
   events: {
     "click #add_card_link": "addCard",
-    "click #add_list_link": "addList"
+    "click #add_list_link": "addList",
+    "click .show.card": "detach"
   },
 
   initialize: function(){
@@ -19,7 +20,6 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
   },
 
   render: function(){
-    debugger
   	var that= this;
   	var content = that.template({
   		board: that.options.model
@@ -64,5 +64,12 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     var targetDiv = event.target.parentElement;
     $(targetDiv).append(listsNewView.render().$el); 
   },
+
+  detach: function(event){
+    card = event.target;
+
+    // $(card).draggable();
+    // debugger
+  }
 
 })

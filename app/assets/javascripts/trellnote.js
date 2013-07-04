@@ -13,6 +13,8 @@ window.Trellnote = {
 
 $(document).ready(function(){
 
+
+
 // AJAX  SUCCESS WAY ; REMOVE LATER.
 
 // 	current_user = new Trellnote.Models.CurrentUser();
