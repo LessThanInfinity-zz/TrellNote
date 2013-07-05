@@ -28,7 +28,9 @@ Trellnote.Views.ListsNew = Backbone.View.extend({
     // this is going to cause an issue. -> no board id. unless collection?
     var list_input = $("#new_list").serializeJSON();    
     // that.model.set(list_input.list);
-    that.collection.create(list_input.list,{parse: true, board_id: that.collection.board_id});
+    that.collection.create(
+      list_input.list,
+      {parse: true, board_id: that.collection.board_id});
 
   
     // that.collection.trigger("add");

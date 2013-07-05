@@ -1,30 +1,9 @@
 class CardsController < ApplicationController
   respond_to :html, :only => [:index]
 
-	# def index
-	# 	@cards= Card.where({user_id: current_user.id})
-
-	# 	respond_to do |format|
-	# 		format.json { render :json => @cards.to_json({
-	# 			:include => {
-	# 				:lists => {:include => {
-	# 				 :cards => {:include => [:tasks]
-	# 									} 
-	# 							}			
-	# 					}
-	# 				}
-	# 			})
-	# 		}
-
-	# 	format.json { render :index }
-	# 	end
-	# end
-
   def create
     @card = Card.new(params[:card])
     @card.list_id = params[:list_id]
-	
-
 
     if @card.save
     
@@ -41,5 +20,17 @@ class CardsController < ApplicationController
 
     render :json => "success"
   end
+
+  def update
+  	@card = Card.find(params[:id])
+  	@card.update_attributes(params[:card])
+
+	  if @card.save    
+      render :json => @card
+    else
+      render :json => @card.errors.full_messages, status: 422
+    end
+  end
+
 end
 

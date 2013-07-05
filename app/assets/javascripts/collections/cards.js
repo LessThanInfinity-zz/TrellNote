@@ -6,4 +6,10 @@ Trellnote.Collections.Cards = Backbone.Collection.extend({
   	return "/boards/" +this.board_id+"/lists/"+this.list_id+"/cards/"
   },
 
+	comparator: function(card){
+		return card.get("position")
+		debugger
+	},
+
+
 });

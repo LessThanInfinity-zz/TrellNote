@@ -2,7 +2,8 @@ class BoardsController < ApplicationController
   respond_to :html, :only => [:index]
 
 	def index
-		@boards= Board.where({user_id: current_user.id}).includes(:lists)
+		@boards= Board.where({user_id: current_user.id}).includes(:lists => [:cards => [:tasks]])
+
 				# @boards= Board.where({user_id: current_user.id}).includes((:lists).includes((:cards).includes(:tasks)))
 
 		respond_to do |format|

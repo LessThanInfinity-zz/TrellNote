@@ -1,11 +1,16 @@
+<div class="lists_container" board-id="<%=board_id %>" >
 	<% lists.each(function(list){ %>
 
-		<div class="show list" id="list_<%= list.id %>" data-id="<%= list.id %>"> 
+		<div class="show list" 
+					id="list_<%= list.id %>" 
+					list-id="<%= list.id %>"> 
+
+					
 		  <div class="list_title">
 		    <h5><%= list.escape("title") %></h5>
 		  </div>
 
-		  <% var cardIndexContent = JST["cards/index"]({cards: list.get("cards"), list: list }) %>
+		  <% var cardIndexContent = JST["cards/index"]({cards: list.get("cards"), list_id: list.id, board_id: board_id }) %>
 		  <!-- ^ refactor, but not priority -->  
 		  <%= cardIndexContent %>
 
@@ -16,5 +21,6 @@
 		  </a>
 
 		</div>
-		
+
 	<% }) %>	
+</div>

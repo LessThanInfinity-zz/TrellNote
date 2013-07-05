@@ -26,7 +26,50 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
   	});
 
   	that.$el.html(content);
+    that.goSortable();
   	return that;
+  },
+
+  goSortable: function() {
+    $(".cards_container").sortable({
+        connectWith: ".cards_container",
+        placeholder: "sortable-placeholder",
+
+    //    placeholder: {
+    //     element: function(currentItem) {
+    //         return $("<div class='sortable-placeholder'><li><em>test</em></li><div>")[0];
+    //     },
+    //     update: function(container, p) {
+    //         return;
+    //     }
+    // },
+
+        start: function(event,ui){
+
+          debugger
+          ui.placeholder.height(parseInt(ui.item.css('height')));
+        },
+
+        update: function(event,ui){
+          debugger
+          var card_id = +ui.item.attr("card-id");
+          var list_id = +ui.item.attr("list-id");
+          var board_id = +ui.item.attr("board-id");
+
+          var board = boards.findWhere({id: board_id})
+          var oldList = board.get("lists").findWhere({id: list_id});
+          var newListID = +event.target.getAttribute("list-id");
+          var card = oldList.get("cards").findWhere({id: card_id});
+
+          if (oldList.id != newListID) {
+            var newList = board.get("lists").findWhere({id: newListID});
+            oldList.get("cards").remove(card);
+            card.set({list_id: newList.id});
+            newList.get("cards").add(card);
+            card.save();
+          }
+        }
+      });
   },
 
   addCard: function(event){
@@ -37,7 +80,7 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     var currBoard = boards.findWhere({id: that.model.id});
 
     var targetDiv = event.target.parentElement;
-    var list_id = $(targetDiv).attr("data-id");
+    var list_id = $(targetDiv).attr("list-id");
 
     var currList = currBoard.get("lists").findWhere({ id: +list_id}) 
     // + needed here because string vs integer

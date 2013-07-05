@@ -1,7 +1,7 @@
 <!-- REFACTOR THIS ASAP WHEN YOU CAN. -->
-<div class="show_bg">
-	<!-- <div class="lists_container"> -->
-	  <% var listIndexContent = JST["lists/index"]({lists: board.get("lists") , board: board })%>
+<div class="show_bg" >
+
+	  <% var listIndexContent = JST["lists/index"]({lists: board.get("lists") , board_id: board.id, })%>
 	  <!-- ^ refactor, but not priority -->  
 	  <%= listIndexContent %>
 
@@ -10,6 +10,6 @@
 			 id="add_list_link">
 			 Add List
 		</a>
-	<!-- </div> -->
+
 </div>
 <a href="#/">Back??</a>
