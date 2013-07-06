@@ -2,8 +2,10 @@ class CardsController < ApplicationController
   respond_to :html, :only => [:index]
 
   def create
+
     @card = Card.new(params[:card])
     @card.list_id = params[:list_id]
+    # @card.list_position = params[:position]
 
     if @card.save
     

@@ -45,14 +45,11 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     // },
 
         start: function(event,ui){
-
-          debugger
           ui.placeholder.height(parseInt(ui.item.css('height')));
         },
 
         update: function(event,ui){
-          debugger
-          var card_id = +ui.item.attr("card-id");
+           var card_id = +ui.item.attr("card-id");
           var list_id = +ui.item.attr("list-id");
           var board_id = +ui.item.attr("board-id");
 
@@ -66,8 +63,29 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
             oldList.get("cards").remove(card);
             card.set({list_id: newList.id});
             newList.get("cards").add(card);
-            card.save();
+            
           }
+          
+          
+          // var list_to_update = board.get("lists").findWhere({id: newListID});
+          // var listCards = list_to_update.get("cards");
+          // var list_position = ui.item.prev().attr("list-position")
+
+          // card.set("list_position", list_position)
+          // debugger
+          // listCards.each(function(otherCard){
+          //   otherCard_pos = otherCard.get("position")
+          //   if (otherCard.id != card.id){
+
+          //     if ( otherCard_pos >= card.get("position")){
+          //     otherCard.set("position", otherCard_pos+1)
+          //     }
+
+          //   }
+         
+          // })
+          card.save();
+          console.log("saved??")
         }
       });
   },

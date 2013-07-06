@@ -26,9 +26,19 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
 
     var card_input = $("#new_card").serializeJSON();    
 
+
+    // last_item= that.collection.last();
+
+    // var position = 0
+    // if (last_item){
+    //   position = last_item.get('position') + 1
+    // }
+    // card_input.card.position = position;
+    debugger
+    
+
     // that.model.set(card_input.card);
     that.collection.create(card_input.card);
-        debugger
     // that.collection.trigger("add");
 
     // that.collection.save({}, 

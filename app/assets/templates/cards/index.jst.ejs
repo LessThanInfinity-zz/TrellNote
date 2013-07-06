@@ -8,7 +8,8 @@
 	  			id="card_<%= card.id %>" 
 	  			list-id="<%= list_id %>" 
 	  			card-id="<%= card.id %>"
-	  			board-id="<%= board_id%>">
+	  			board-id="<%= board_id%>"
+	  			list-position="<%= card.get('position') %>">
 
 	    <%= card.escape("title") %>
 	  </div>
