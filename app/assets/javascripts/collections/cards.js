@@ -7,7 +7,7 @@ Trellnote.Collections.Cards = Backbone.Collection.extend({
   },
 
 	comparator: function(card){
-		return card.get("position")
+		return card.get("list_position")
 		debugger
 	},
 

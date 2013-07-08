@@ -4,6 +4,7 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
 
   events: {
    "click #new_card_button": "create",
+
    },
 
   // initialize: function(){
@@ -22,23 +23,24 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
 
   create: function(event){
     var that= this;
+
+
     event.preventDefault() // because used inputsubmit.
 
     var card_input = $("#new_card").serializeJSON();    
 
+    last_item= that.collection.last();
 
-    // last_item= that.collection.last();
-
-    // var position = 0
-    // if (last_item){
-    //   position = last_item.get('position') + 1
-    // }
-    // card_input.card.position = position;
-    debugger
-    
+    var list_position = 0
+    if (last_item){
+      list_position = last_item.get('list_position') + 1
+    }
+    card_input.card.list_position = list_position;
+  
 
     // that.model.set(card_input.card);
-    that.collection.create(card_input.card);
+    that.collection.create(card_input.card)
+
     // that.collection.trigger("add");
 
     // that.collection.save({}, 
@@ -53,7 +55,6 @@ Trellnote.Views.CardsNew = Backbone.View.extend({
     //     that.$el.prepend(errors.responseText.substring(1, length));
     //   }
     // })
-
   },
 
 

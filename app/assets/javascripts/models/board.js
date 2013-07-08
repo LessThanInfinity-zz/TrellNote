@@ -1,6 +1,6 @@
 Trellnote.Models.Board = Backbone.Model.extend({
 
-	urlRoot: "/boards",
+	// urlRoot: "/boards",
 
 	parse: function(server_response){
 		that = this;

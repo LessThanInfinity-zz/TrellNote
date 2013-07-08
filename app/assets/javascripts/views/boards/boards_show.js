@@ -5,7 +5,11 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
   events: {
     "click #add_card_link": "addCard",
     "click #add_list_link": "addList",
-    "click .show.card": "detach"
+    "click .show.card": "detach",
+    "blur .cardNewMain": "removeCardForm",
+    "blur .listNewMain": "removeListForm",
+    "add_more_cards": "addCard",
+
   },
 
   initialize: function(){
@@ -35,21 +39,12 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
         connectWith: ".cards_container",
         placeholder: "sortable-placeholder",
 
-    //    placeholder: {
-    //     element: function(currentItem) {
-    //         return $("<div class='sortable-placeholder'><li><em>test</em></li><div>")[0];
-    //     },
-    //     update: function(container, p) {
-    //         return;
-    //     }
-    // },
-
         start: function(event,ui){
           ui.placeholder.height(parseInt(ui.item.css('height')));
         },
 
         update: function(event,ui){
-           var card_id = +ui.item.attr("card-id");
+          var card_id = +ui.item.attr("card-id");
           var list_id = +ui.item.attr("list-id");
           var board_id = +ui.item.attr("board-id");
 
@@ -58,37 +53,59 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
           var newListID = +event.target.getAttribute("list-id");
           var card = oldList.get("cards").findWhere({id: card_id});
 
+
+          // Positioning
+          var list_to_update = board.get("lists").findWhere({id: newListID});
+          var listCards = list_to_update.get("cards");
+          var list_position = +ui.item.next().attr("list-position")
+
+
+          if (list_position){
+            card.set("list_position", list_position)  
+          } else{
+            card.set("list_position", +ui.item.prev().attr("list-position") +1 )
+          }
+          
+
+          listCards.each(function(otherCard){
+
+            // debugger 
+            console.log("each loop called")
+            otherCard_pos = otherCard.get("list_position")
+
+            if (otherCard.id != card.id){
+              if ( otherCard_pos >= card.get("list_position")){
+                otherCard.set("list_position", otherCard_pos+1);
+                otherCard.save()
+              }
+            }         
+          })          
+
+          // addition to collection.
           if (oldList.id != newListID) {
+
             var newList = board.get("lists").findWhere({id: newListID});
             oldList.get("cards").remove(card);
             card.set({list_id: newList.id});
-            newList.get("cards").add(card);
-            
-          }
-          
-          
-          // var list_to_update = board.get("lists").findWhere({id: newListID});
-          // var listCards = list_to_update.get("cards");
-          // var list_position = ui.item.prev().attr("list-position")
+            newList.get("cards").add(card);            
+          }          
 
-          // card.set("list_position", list_position)
-          // debugger
-          // listCards.each(function(otherCard){
-          //   otherCard_pos = otherCard.get("position")
-          //   if (otherCard.id != card.id){
-
-          //     if ( otherCard_pos >= card.get("position")){
-          //     otherCard.set("position", otherCard_pos+1)
-          //     }
-
-          //   }
-         
-          // })
           card.save();
-          console.log("saved??")
+
+          debugger
+          //  seriously need to refactor this: trigger change??
+          oldList.get("cards").remove(card);
+          oldList.get("cards").add(card);
+          // oldList.get("cards").trigger("update", oldList.get("cards"));
+          // oldList.get("cards").sync("read", oldList.get("cards"));
+
         }
+
+
       });
   },
+
+
 
   addCard: function(event){
     event.preventDefault();
@@ -98,7 +115,7 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
     var currBoard = boards.findWhere({id: that.model.id});
 
     var targetDiv = event.target.parentElement;
-    var list_id = $(targetDiv).attr("list-id");
+    var list_id = $(targetDiv.parentElement).attr("list-id");
 
     var currList = currBoard.get("lists").findWhere({ id: +list_id}) 
     // + needed here because string vs integer
@@ -106,10 +123,12 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
 
     var cardsNewView = new Trellnote.Views.CardsNew({
         model: card,
-        collection: currList.get("cards")
+        collection: currList.get("cards"),
+        view: that
+
     });
     
-    $(targetDiv).append(cardsNewView.render().$el)
+    $(targetDiv).html(cardsNewView.render().$el)
   },
 
   addList: function(event){
@@ -128,9 +147,18 @@ Trellnote.Views.BoardShow = Backbone.View.extend({
 
   detach: function(event){
     card = event.target;
+  },
 
-    // $(card).draggable();
-    // debugger
+
+  removeCardForm: function(event){
+    $(".cardNewMain").remove();
+    this.render()
+  },
+
+  removeListForm: function(event){
+    $(".listNewMain").remove();
+    this.render()
   }
+
 
 })

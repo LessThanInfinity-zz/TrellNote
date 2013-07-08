@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705203832) do
+ActiveRecord::Schema.define(:version => 20130706000620) do
 
   create_table "boards", :force => true do |t|
     t.string   "title"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20130705203832) do
   create_table "cards", :force => true do |t|
     t.string   "title"
     t.integer  "list_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "position"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "list_position"
   end
 
   add_index "cards", ["list_id"], :name => "index_cards_on_list_id"

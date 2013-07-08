@@ -1,28 +1,38 @@
 div.show{
 	/*@include panel;*/
 	/*width: 400px;*/
-	padding: 10px;
+	padding: 7px;
 	/*float: left;*/
-	margin: 10px;
+	margin: 6px;
 
 }
 
-
 div.show.list{
 	
-	width: 350px;
+  display: inline-block;
+  white-space: normal;
+
+	width: 300px;
 /*	border-color: #3F92D2;*/
 	float: left;
 	background-color: white;
 	border-radius: 4px;
 	background: rgba(227,227,227,1);
 	z-index: 200px;
+
+
+}
+
+
+div.lists_container{	
+    overflow: auto;
+    white-space: nowrap;
 }
 
 
 div.show.card{
 	clear: both;
-	width: 98%;
+	width: 99.4%;
 	border-radius: 4px;
 	/*border: solid 1px;*/
 	/*padding: 5px;*/
@@ -43,4 +53,20 @@ div.show.task{
 	border-color: blue;
 	padding: 0 10px;
 	margin: 0;
+}
+
+div#list_addNew{
+	padding: 15px;
+	background-color: #628CA4;
+	color: white;
+}
+
+div.add_card_link{
+	margin-top: 20px;
+
+}
+
+
+a.add_list_link:link{
+	color: white;
 }

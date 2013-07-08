@@ -1,6 +1,9 @@
 class ListsController < ApplicationController
 respond_to :html, :only => [:index]
 
+
+  
+
   def create
     @list = List.new(params[:list])
     @list.board_id = params[:board_id]

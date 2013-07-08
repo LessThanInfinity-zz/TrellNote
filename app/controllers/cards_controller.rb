@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 
     @card = Card.new(params[:card])
     @card.list_id = params[:list_id]
-    # @card.list_position = params[:position]
+    @card.list_position = params[:list_position]
 
     if @card.save
     
